@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": false
+  },
+  "plugins": ["react"],
+  "extends": [
+	"airbnb",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+},
+  "rules": {
+  }
+}
+
