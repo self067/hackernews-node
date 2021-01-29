@@ -1,0 +1,88 @@
+
+mutation {
+  post(url: "www2.graphqlconf.org", 
+    description: "222An awesome GraphQL conference") 
+  {
+    id
+  }
+}
+//HTTP_HEADERS
+{"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYxMTg1NzMxOH0.qALjaYQwALH6X7set9zfWeQykosrMLHVsSC7HnkeLZg"}
+
+mutation SignUp{
+  signup(name: "Alice", email: "alice@prisma.io", password: "graphql") {
+    token
+    user {
+      id
+    }
+  }
+}
+
+
+mutation Login{
+  login(email: "alice@prisma.io", password: "graphql") {
+    token
+    user {
+      email
+      links {
+        url
+        description
+      }
+    }
+  }
+}
+
+query Qu{
+  feed(filter: "QL") {
+    id
+    description
+    url
+    postedBy {
+      id
+      name
+    }
+  }
+}
+
+subscription Sub{
+  newVote {
+    id
+    link {
+      url
+      description
+    }
+    user {
+      name
+      email
+    }
+  }
+}
+
+query {
+  feed(take: 2, skip: 2) {
+    id
+    description
+    url
+  }
+}
+
+
+query {
+  feed(orderBy: { createdAt: desc }) {
+    id
+    description
+    url
+  }
+}
+
+// count
+query {
+  feed {
+    count
+    links {
+      id
+      description
+      url
+    }
+  }
+}
